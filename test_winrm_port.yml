@@ -10,4 +10,4 @@
 
     - name: Show result
       ansible.builtin.debug:
-        msg: 'Host {{ inventory_hostname }}: {{ result.stdout | default("Connection failed") }}'
+        msg: 'Host {{ test inventory }}: {{ result.stdout | default("Connection failed") }}'
