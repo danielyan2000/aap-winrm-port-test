@@ -4,13 +4,13 @@
   gather_facts: false
   tasks:
     - name: Test port 5985 using nc
-      ansible.builtin.shell: "nc -zv {{ test inventory }} 5985"
+      ansible.builtin.shell: "nc -zv {{ test_inventory }} 5985"
       register: result
       ignore_errors: true
 
     - name: Show result
       ansible.builtin.debug:
         msg: >
-          Host {{ test inventory }}: {{
+          Host {{ test_inventory }}: {{
             result.stdout | default("Connection failed")
           }}
