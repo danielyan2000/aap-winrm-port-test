@@ -1,0 +1,13 @@
+---
+- name: Test WinRM Port 5985 on Multiple Windows Hosts
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Test port 5985 using nc
+      ansible.builtin.shell: "nc -zv {{ test inventory }} 5985"
+      register: result
+      ignore_errors: true
+
+    - name: Show result
+      ansible.builtin.debug:
+        msg: "Host {{ test inventory }}: {{ result.stdout | default('Connection failed') }}"
