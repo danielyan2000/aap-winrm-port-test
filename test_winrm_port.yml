@@ -8,10 +8,9 @@
       register: result
       ignore_errors: true
 
-- name: Show result
-  ansible.builtin.debug:
-    msg: >
-      Host {{ test inventory }}: {{
-        result.stdout | default("Connection failed")
-      }}
-
+    - name: Show result
+      ansible.builtin.debug:
+        msg: >
+          Host {{ test inventory }}: {{
+            result.stdout | default("Connection failed")
+          }}
