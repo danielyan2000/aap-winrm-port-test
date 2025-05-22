@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
     - name: Test port 5985 using nc
-      ansible.builtin.shell: "nc -zv {{ test_winrm_inventory }} 5985"
+      ansible.builtin.shell: "nc -zv {{ test_winrm_inventory }} 22"
       register: result
       ignore_errors: true
 
